@@ -15,6 +15,8 @@ import CustomAccor from './CustomAccor';
 import { Outlet } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../configue/FirebaseConfigue';
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 
 const drawerWidth = 240;
@@ -46,7 +48,7 @@ export default function Layout() {
           <Box sx={{display:"flex",gap:2}}>
           <Typography 
           sx={{display:{xs:"flex",md:"none"}}}
-          onClick={()=>setOpenDrwer(prev => !prev)}>Open</Typography>
+          onClick={()=>setOpenDrwer(prev => !prev)}><MenuIcon/></Typography>
           <Typography 
           onClick={logOut}>Logout</Typography>
 

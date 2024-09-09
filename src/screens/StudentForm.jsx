@@ -33,6 +33,8 @@ function StudentForm() {
   return (
     <Box sx={{ maxWidth: "70%", margin: "0 auto" }}>
       <form onSubmit={handleSumbit}>
+        <Box sx={{display:"flex",gap:3,flexDirection:"column"}}>
+
         <Box>
           <label>First Name</label>
           <TextField
@@ -67,7 +69,7 @@ function StudentForm() {
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
-          />
+            />
         </Box>
         <Box>
           <label>Class</label>
@@ -82,11 +84,9 @@ function StudentForm() {
           />
         </Box>
         <Box>
-          <label>Gender</label>
           <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
             name="radio-buttons-group"
           >
             <FormControlLabel
@@ -107,7 +107,8 @@ function StudentForm() {
             />
           </RadioGroup>
         </Box>
-        <Button type="sumbit">Sumbit</Button>
+        <Button type="sumbit" variant="contained">Sumbit</Button>
+        </Box>
       </form>
     </Box>
   );

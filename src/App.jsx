@@ -22,6 +22,7 @@ import SignUpPage from './screens/SignUpPage'
 import LoginPage from './screens/LoginPage'
 import ProtecRoute from './screens/ProtecRoute'
 import AuthProtect from './screens/AuthProtect'
+import FeeSubmission from './screens/FeeSubmission'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -55,7 +56,7 @@ function App() {
 
         <Route path='/fee-structure' element={<FeeStructure/>}/>
         <Route path='/fee-voucher' element={<FeeVoucher/>}/>
-        <Route path='/fee-submission' element={<ClassList/>}/>
+        <Route path='/fee-submission' element={<FeeSubmission/>}/>
       </Route>
     </Routes>
     </>

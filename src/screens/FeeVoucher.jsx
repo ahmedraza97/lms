@@ -13,7 +13,7 @@ function FeeVoucher() {
         querySnapshot.forEach((doc) => {
          arr.push({...doc.data(),id:doc.id})
         });
-        setFeeData(reverse);
+        setFeeData(arr);
       }
   
       React.useEffect(()=>{
@@ -21,7 +21,7 @@ function FeeVoucher() {
       },[]);
   return (
     <Box>
-    <Typography sx={{fontSize:"24px",textAlign:"center"}}>Fee Structure</Typography>
+    <Typography sx={{fontSize:"24px",textAlign:"center"}}>Fee Voucher</Typography>
 
         <Box sx={{maxWidth:"700px",margin:"20px auto"}}>
             {

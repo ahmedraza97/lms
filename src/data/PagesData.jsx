@@ -78,6 +78,16 @@ export const PagesData = [
         ],
     },
     {
+        pageLabel:"Admission",
+        links:[
+            {
+                name:"Admission Form",
+                path:"/class-form",
+            },
+
+        ],
+    },
+    {
         pageLabel:"Fee",
         links:[
             {

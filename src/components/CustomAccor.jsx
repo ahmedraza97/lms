@@ -33,7 +33,7 @@ export default function CustomAccor({ data, expanded, handleChange }) {
                   key={e.name}
                   to={`${e.path}`}
       
-                  style={{textDecoration:"none",textAlign:"left",paddingLeft:15,color:"grey"}}
+                  style={{textDecoration:"none",textAlign:"left",paddingLeft:15,color:"grey",textTransform:"capitalize"}}
                 >
                   {e.name}
                 </NavLink>

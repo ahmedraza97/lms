@@ -12,19 +12,25 @@ import React, { useState } from "react";
 import { db } from "../configue/FirebaseConfigue";
 import { useNavigate } from "react-router-dom";
 
-function TeacherForm() {
+function SyllabusForm() {
   const [formData, setFormData] = useState({
     subjectname: "",
     class: "",
-    group: "",
+    file: "",
   });
+  const fileHandler = (e)=>{
+    const file = e.target.files[0]
+    const urlLink = URL.createObjectURL(file);
+    setFormData({...formData,file:urlLink}) ;
+    console.log(formData)
+  }
   let navigate = useNavigate()
   const handleSumbit = async (e)=>{
     e.preventDefault()
     try {
-      const docRef = await addDoc(collection(db, "subjects"),formData);
+      const docRef = await addDoc(collection(db, "syllabus"),formData);
       console.log("Document written with ID: ", docRef.id);
-      navigate("subject-list");
+      navigate("syllabus-list");
 
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -56,38 +62,24 @@ function TeacherForm() {
             type="number"
             placeholder="Enter your Class"
             value={formData.class}
+            // required
+            onChange={(e)=>setFormData({...formData,class:e.target.value})}
+          />
+        </Box>
+        <Box sx={{color:"white"}}>
+          <label htmlFor="uploadfile" style={{width:"100%",backgroundColor:"rgb(25, 118, 210)",display:"inline-block",paddingBottom:5,paddingTop:5,textAlign:"center",cursor:"pointer"}} >Upload file</label>
+          <TextField
+            fullWidth
+            type="file"
+            placeholder="Enter your Class"
             required
-            onChange={(e) =>
-              setFormData({ ...formData, class: e.target.value })
-            
-            }
+            sx={{display:"none"}}
+            id="uploadfile"
+            onChange={fileHandler}
           />
         </Box>
 
-        <Box>
-          <FormLabel  id="demo-radio-buttons-group-label">Select Group</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            name="radio-buttons-group"
-          >
-            <FormControlLabel
-              value="General-Science"
-              control={<Radio />}
-              label="General-Science"
-              onChange={(e) =>
-                setFormData({ ...formData, gender: e.target.value })
-              }
-            />
-            <FormControlLabel
-              value="Pre-Medical"
-              control={<Radio />}
-              label="Pre-Medical"
-              onChange={(e) =>
-                setFormData({ ...formData, gender: e.target.value })
-              }
-            />
-          </RadioGroup>
-        </Box>
+
         <Button type="sumbit" variant="contained">Sumbit</Button>
       </Box>  
       </form>
@@ -95,4 +87,4 @@ function TeacherForm() {
   );
 }
 
-export default TeacherForm;
+export default SyllabusForm;
