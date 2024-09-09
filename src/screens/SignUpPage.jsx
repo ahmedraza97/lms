@@ -26,7 +26,7 @@ function SignUpPage() {
       await setDoc(doc(db,'users', userid),formData)
       .then((res)=>console.log(res))
       .catch((err)=>console.log(err));
-      navigate("/login")
+      navigate("/");
 
     })
     .catch((err)=>
@@ -89,3 +89,4 @@ function SignUpPage() {
 }
 
 export default SignUpPage
+
