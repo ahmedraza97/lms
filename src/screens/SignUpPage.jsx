@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
 import { auth, db } from '../configue/FirebaseConfigue'
 import { doc, setDoc } from 'firebase/firestore'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function SignUpPage() {
   const [formData,setFormData] = useState({
@@ -80,6 +80,8 @@ function SignUpPage() {
                     ></TextField>
                 </Box>
                 <Button type='submit' variant='contained' >Sign up</Button>
+                <Typography>Already have an account <NavLink to="/" className="link">Login</NavLink></Typography>
+
             </Paper>
         </form>
     </Box>

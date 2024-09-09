@@ -12,7 +12,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 // import { Outlet } from 'react-router-dom';
 import { PagesData } from '../data/PagesData';
 import CustomAccor from './CustomAccor';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../configue/FirebaseConfigue';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -22,10 +22,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 const drawerWidth = 240;
 
 export default function Layout() {
+  const navigate = useNavigate() 
 
   const logOut = ()=>{
     signOut(auth)
-    localStorage.clear()
+    localStorage.clear();
+    navigate("/")
   }
   const [expanded, setExpanded] = React.useState(false);
 
@@ -50,7 +52,7 @@ export default function Layout() {
           sx={{display:{xs:"flex",md:"none"}}}
           onClick={()=>setOpenDrwer(prev => !prev)}><MenuIcon/></Typography>
           <Typography 
-          onClick={logOut}>Logout</Typography>
+          onClick={logOut}sx={{cursor:'pointer'}}>Logout</Typography>
 
           </Box>
         </Toolbar>

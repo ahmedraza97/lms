@@ -33,7 +33,7 @@ function App() {
       <Route element={<AuthProtect/>}>
 
         <Route path='/' element={<LoginPage/>}/>
-        <Route path='/Signup' element={<SignUpPage/>}/>
+        <Route path='/signup' element={<SignUpPage/>}/>
       </Route>
 
       <Route element={<ProtecRoute Layout={Layout}/>}>
