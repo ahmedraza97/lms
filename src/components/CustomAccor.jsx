@@ -4,16 +4,16 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function CustomAccor({ data, expanded, handleChange }) {
-  const { pageLabel, links} = data;
+  const { pageLabel, links } = data;
 
   return (
-    <div style={{width:'100%'}} >
-      <Accordion 
-        sx={{ bgcolor: "transparent", boxShadow: "none", px: 0 ,}}
+    <div style={{ width: "100%" }}>
+      <Accordion
+        sx={{ bgcolor: "transparent", boxShadow: "none", px: 0 }}
         expanded={expanded === pageLabel}
         onChange={handleChange(pageLabel)}
       >
@@ -25,21 +25,35 @@ export default function CustomAccor({ data, expanded, handleChange }) {
           <Typography>{pageLabel}</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ padding: 0 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-            {
-              links.map((e,i)=>{
-                return(
-                  <NavLink
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              background: "#fe9828",
+              margin: "0px 10px",
+              borderRadius: "5px",
+              padding: "10px",
+            }}
+          >
+            {links.map((e, i) => {
+              return (
+                <NavLink
                   key={e.name}
                   to={`${e.path}`}
-      
-                  style={{textDecoration:"none",textAlign:"left",paddingLeft:15,color:"grey",textTransform:"capitalize"}}
+                  style={{
+                    textDecoration: "none",
+                    textAlign: "left",
+                    paddingLeft: 15,
+                    color: "grey",
+                    textTransform: "capitalize",
+                    color: "white",
+                  }}
                 >
                   {e.name}
                 </NavLink>
-                )
-              })
-            }
+              );
+            })}
           </Box>
         </AccordionDetails>
       </Accordion>

@@ -1,24 +1,18 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCNKdzQfMrYfWRn2rYRnq9Vxrs9TEzTLeE",
-  authDomain: "lms-abeer.firebaseapp.com",
-  projectId: "lms-abeer",
-  storageBucket: "lms-abeer.appspot.com",
-  messagingSenderId: "45435078049",
-  appId: "1:45435078049:web:7f3a572693859b4cbeb7e0"
+  apiKey: "AIzaSyDTEJhryEVbiVTG8FFy57pqhgUarOopwjc",
+  authDomain: "learning-management-syst-483dc.firebaseapp.com",
+  projectId: "learning-management-syst-483dc",
+  storageBucket: "learning-management-syst-483dc.appspot.com",
+  messagingSenderId: "491980981495",
+  appId: "1:491980981495:web:326acc1e0dc36c3122fff2",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app)
+const auth = getAuth(app);
 
-
-
-
-export {db,auth}
+export { db, auth };
